@@ -9,10 +9,13 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import HTMLResponse
 import pdfplumber
 from openai import OpenAI
+import os 
 
 app = FastAPI()
 
-client = OpenAI(api_key="OPENAI_API_KEY")
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY")
+)
 
 @app.get("/", response_class=HTMLResponse)
 def index():
