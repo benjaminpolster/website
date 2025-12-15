@@ -12,7 +12,7 @@ from openai import OpenAI
 
 app = FastAPI()
 
-client = OpenAI(api_key="YOUR_API_KEY")
+client = OpenAI(api_key="OPENAI_API_KEY")
 
 @app.get("/", response_class=HTMLResponse)
 def index():
@@ -40,7 +40,7 @@ async def analyze(file: UploadFile = File(...)):
     #GPT Call 
     prompt = f"""
     You are a legal document analysis assistant.
-    Analyze the following document and summarize its key points.
+    Analyze the following document and summarize its key points in 200 words or less.
 
     DOCUMENT:
     {text[:12000]}
