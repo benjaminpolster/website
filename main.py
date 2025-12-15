@@ -13,6 +13,7 @@ import os
 
 app = FastAPI()
 
+print("API KEY FOUND:", os.getenv("OPENAI_API_KEY") is not None)
 client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY")
 )
