@@ -30,7 +30,7 @@
             const formData = new FormData();
             formData.append("file", fileInput.files[0]);
 
-            const response = await fetch("https://website-v7fe.onrender.com", {
+            const response = await fetch("https://website-v7fe.onrender.com/analyze", {
                 method: "POST",
                 body: formData
             });
