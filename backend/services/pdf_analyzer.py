@@ -12,7 +12,7 @@ def analyze_pdf(file):
 
     prompt = f"""
     You are a legal document analysis assistant.
-    Summarize the following document.
+    Identify the following document type and state it's purpose in 50 words or less.
 
     DOCUMENT:
     {text[:12000]}
