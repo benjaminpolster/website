@@ -5,6 +5,7 @@
     <title>Legal Document Analysis with GPT4.0-mini</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
+<body>
 <header class="site-header">
 
     <!-- Top header row -->
@@ -62,54 +63,49 @@
     </nav>
 </header>
 
-<body>
+
     <h2 class="analyzer-title">
         PROJECTS / Legal Document Analysis with Artificial Intelligence
     </h2>
 
-    <section>
-    <h2>Select and Upload</h2>
-    <p> 
-        Upload the short form Power of Attorney to determine the eligibility of potential new agents. In order to be eligible to become an agent under the bank owner's 
-        account, the Power of Attorney document must be signed and notarized in Illinois with at least one witness. In order for the requesting party to acquire agency, it must be in alignment 
-        with the effective date listed on the document.
-    </p>
-    <p> 
-        Upload the Will in question to determine the eligibility of potential new agents. In order a Will to be in compliance, it must be both filed in court and an executor must be appointed. If one or both of 
-        these conditions is not satisfied, the Will is not in compliance. 
-    </p>
+<section class="analyzer-section">
+    <h2>Select and Upload Document</h2>
     <p>
-        Select your document type: 
+        Upload a Short Form Power of Attorney or Will. The AI will analyze your document and provide a checklist of compliance requirements.
     </p>
+
+    <!-- Document Type Buttons -->
     <div class="doc-type-buttons">
         <button type="button" data-doc="poa" class="active">Short Form Power of Attorney</button>
         <button type="button" data-doc="will">Will</button>
     </div>
 
+    <!-- File Upload and Analyze -->
     <form id="analyze-form">
         <div class="analyzer-controls">
-            <input type="file" id="pdf-file" required>
-            <button type="submit">Go</button>
+            <input type="file" id="pdf-file" accept=".pdf" required>
+            <button type="submit">Analyze</button>
         </div>
     </form>
 
-    <pre id="result"></pre> 
+    <!-- GPT Output -->
+    <pre id="result"></pre>
+</section>
 
-    <script>
+<script>
+    // Doc type buttons
     const buttons = document.querySelectorAll(".doc-type-buttons button");
     let selectedDocType = "poa"; // default
 
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
-            // Remove active from all buttons
             buttons.forEach(b => b.classList.remove("active"));
-            // Add active to clicked button
             btn.classList.add("active");
-            // Update selected doc type
             selectedDocType = btn.dataset.doc;
         });
     });
 
+    // Form submission
     const form = document.getElementById("analyze-form");
     const resultBox = document.getElementById("result");
 
@@ -124,7 +120,7 @@
 
         const formData = new FormData();
         formData.append("file", fileInput.files[0]);
-        formData.append("doc_type", selectedDocType); // <-- use selected button
+        formData.append("doc_type", selectedDocType);
 
         resultBox.textContent = "Analyzing...";
 
@@ -147,7 +143,7 @@
             resultBox.textContent = "Request failed:\n" + err.message;
         }
     });
-    </script>
-    </section>
+</script>
+
 </body>
 </html>

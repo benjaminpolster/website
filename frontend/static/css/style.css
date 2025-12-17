@@ -221,7 +221,30 @@ a:hover {
     color: #A39594;
 }
 
-/* Button stuff */
+.analyzer-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 24px 32px;
+    border: 1px solid #6E675F;
+    border-radius: 18px;
+    background-color: #fdf6f2;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.analyzer-section h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-family: 'FranklinStandard-Demi', sans-serif;
+    font-size: 1.6rem;
+}
+
+.analyzer-section p {
+    margin: 8px 0;
+    line-height: 1.7;
+    text-indent: 1.7em;
+}
+
 .doc-type-buttons {
     display: flex;
     justify-content: center;
@@ -230,12 +253,13 @@ a:hover {
 }
 
 .doc-type-buttons button {
-    padding: 12px 26px;
+    padding: 14px 28px;
     border-radius: 14px;
     border: 1px solid #333;
     background-color: #333;
     color: #fff;
     cursor: pointer;
+    font-family: 'FranklinStandard-Demi', sans-serif;
     transition: background-color 0.2s, color 0.2s;
 }
 
@@ -246,7 +270,7 @@ a:hover {
 }
 
 .doc-type-buttons button:hover:not(.active) {
-    background-color: #333;
+    background-color: #555;
 }
 
 .analyzer-controls {
@@ -257,18 +281,24 @@ a:hover {
     margin-top: 20px;
 }
 
-.analyzer-controls button {
-    padding: 12px 28px;
-    font-size: 15px;
-    font-family: 'FranklinStandard-Demi', Arial, sans-serif;
-    letter-spacing: 1.5px;
+.analyzer-controls input[type="file"]::-webkit-file-upload-button {
+    padding: 10px 18px;
+    font-family: 'FranklinStandard-Demi', sans-serif;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
 
+.analyzer-controls button {
+    padding: 14px 32px;
+    font-size: 15px;
+    font-family: 'FranklinStandard-Demi', sans-serif;
     border-radius: 8px;
     border: none;
     background-color: #333;
     color: #fff;
     cursor: pointer;
-
     transition: background-color 0.2s ease;
 }
 
@@ -277,28 +307,19 @@ a:hover {
     color: #333;
 }
 
-.analyzer-controls input[type="file"]::-webkit-file-upload-button {
-    padding: 10px 18px;
-    font-family: 'FranklinStandard-Demi', Arial, sans-serif;
-    letter-spacing: 1px;
-    border-radius: 6px;
-    border: 1px solid #333;
-    background-color: #f5f5f5;
-    cursor: pointer;
-}
-
-section #result {
-    font-family: 'Georgia', serif; /* match your body font */
-    white-space: pre-wrap;          /* wrap lines instead of scrolling horizontally */
-    word-wrap: break-word;          
-    overflow-wrap: break-word;      
-    max-width: 100%;                
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-top: 20px;
-    background-color: #CEB7B3;
-    line-height: 1.5;               /* optional: make it more readable */
+#result {
+    display: block;
+    font-family: 'Georgia', serif !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    padding: 12px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    margin-top: 20px !important;
+    background-color: #CEB7B3 !important;
+    line-height: 1.5 !important;
 }
 
 
