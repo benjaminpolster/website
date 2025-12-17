@@ -5,18 +5,102 @@
     <title>Projects</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
-<body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
 
-    <h1>Projects</h1>
-    <ul>
-        <li><a href="analyzer.html">Legal Document Analyzer</a></li>
-        <!-- add more projects here -->
-    </ul>
+<header class="site-header">
+
+    <!-- Top header row -->
+    <div class="header-top">
+
+        <!-- Social icons (left) -->
+        <div class="header-left">
+            <a href="https://instagram.com/benjamin.polster"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon">
+                <img src="static/img/instagram.svg" alt="Instagram">
+            </a>
+
+        <a href="https://linkedin.com/in/benjaminpolster"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon">
+                <img src="static/img/linkedin.svg" alt="LinkedIn">
+        </a>
+
+        <a href="https://github.com/benjaminpolster"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon">
+        <img src="static/img/github.svg" alt="GitHub">
+        </a>
+        </div>
+
+        <!-- Name (center) -->
+        <div class="header-center">
+            <h1>Benjamin Polster</h1>
+        </div>
+
+        <!-- Search bar (right) -->
+        <div class="header-right">
+            <input
+                type="text"
+                placeholder="Search"
+                class="search-input"
+            >
+        </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="header-divider"></div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <a href="projects.html">PROJECTS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="about.html">ABOUT ME</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+</header>
+
+<body>
+<section>
+    <h2>Deepfake Video Detection with Machine Learning</h2>
+    <p>
+            In a world where artificial intelligence can generate virtually anything, realistic but synthetic videos have proven to
+be a growing threat to trust in digital spaces. This paper proposes the use of spatiotemporal content features and style
+based facial attributes to create a video deepfake detection
+system that can identify these manipulations. The architecture integrates a 3D ResNet-50 model for motion analysis
+with a StyleGRU module to capture temporal inconsistencies
+in facial rendering. The features are extracted with parallel
+pipelines, temporally fused through attention weighting before being classified by a transformer. With the model 
+achieving <span class="bold-text">88%</span> and <span class="bold-text">91%</span> accuracy on Celeb-DF and FaceForensics+
+datasets respectively, this work proves a new alternative for
+detecting deepfakes with high efficiency.
+	</p>
+    <p>
+        <a href="https://github.com/benjaminpolster/deepfake_detector">Check it out →</a>
+    </p>
+</section>
+
+<section>
+    <h2>Legal Document Analysis with a Large Language Model</h2>
+    <p>
+The complexity of legal documentation in finance & banking contexts has led to growing interest in artificial intelligence (AI) 
+and large language models (LLMs) as tools for automating analysis, risk assessment, and decision support. This project includes an 
+examination of recent work and research on AI legal document processing, focusing on feasibility, reliability, effectiveness and 
+ethical constraints. This project takes advantage of GPT 4.0-mini to analyze documents, evaluate their contents, and perform 
+decision pathing across an attorney-written checklist. 
+    </p>
+    <p>
+        <a href="analyzer.html">Try it →</a>   
+    </p>
+</section>
 </body>
+
+<footer>
+  <p>&copy; 2025 Benjamin D. Polster</p>
+</footer>
+
 </html>
+

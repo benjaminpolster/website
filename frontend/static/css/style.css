@@ -1,15 +1,309 @@
-body {
-    font-family: Arial, sans-serif;
+/* ===== Fonts ===== */
+@font-face {
+    font-family: "GeorgiaStandard";
+    src: url("../fonts/georgia/georgia.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "GeorgiaStandard-Bold";
+    src: url("../fonts/georgia/georgiab.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "FranklinStandard-Demi";
+    src: url("../fonts/franklin/FRADM.TTF") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ConsolasStandard";
+    src: url("../fonts/consolas/consolas.ttf") format("truetype");
+    font-weight : normal;
+    font-style: normal;
+}
+
+.bold-text {
+    font-family: 'GeorgiaStandard-Bold', Georgia, serif;
+}
+
+/* Body font formatting */
+body{
+    font-family: "GeorgiaStandard";
     margin: 20px;
     line-height: 1.6;
 }
 
-nav a {
-    margin-right: 15px;
-    text-decoration: none;
-    color: #333;
+.analyzer-title {
+    font-family: 'Franklin', 'Franklin Gothic', Arial, sans-serif;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    text-align: center;
+
+    margin: 40px auto 24px;
+    max-width: 800px;
+
+    font-weight: normal;
 }
 
-nav a:hover {
-    text-decoration: underline;
+/* Header font formatting */
+.header-center h1 {
+    font-family: "GeorgiaStandard-Bold", serif;
+    margin: 0;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
+
+/* Navigation font formatting */ 
+.main-nav a {
+    font-family: "FranklinStandard-Demi", sans-serif;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    padding-bottom: 5px;
+}
+
+/* ===== Body ===== */ 
+
+body {
+    margin: 0;
+    padding: 40px 0;
+    font-family: 'Georgia', serif;
+    background-color: #d6d6d1;
+    font-size: 1.4rem;
+}
+
+/* section formatting */
+
+section {
+    max-width: 800px;        /* controls width */
+    margin: 40px auto;       /* centers section */
+    padding: 24px 32px;
+
+    border: 1px solid #6E675F;
+    border-radius: 18px;
+
+    text-align: left;
+    box-sizing: border-box;
+}
+
+section h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.6rem;
+}
+
+
+section p {
+    margin: 8px 0;
+    line-height: 1.7;
+    text-indent: 1.7em;
+}
+
+section ul {
+    margin: 8px 0 16px 20px;
+    padding: 0;
+}
+
+section li {
+    margin-bottom: 6px;
+}
+
+/* link formatting */
+a {
+    font-family: 'GeorgiaStandard-Bold', Georgia, serif;
+    color: #423E37;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #E3B23C;
+}
+
+
+/* ===== Header Container ===== */
+.site-header {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* ===== Top Header Row ===== */
+.header-top {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Left: Social Icons */
+.header-left {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+.social-icon img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.8;
+}
+
+.social-icon img:hover {
+    opacity: 1;
+}
+
+/* Center: Name */
+.header-center {
+    text-align: center;
+}
+
+.header-center h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* Right: Search */
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-input {
+    width: 220px;
+    height: 30px;
+    padding: 1px 10px;
+    font-size: 14px;
+    border: 1px solid #A39594;
+    background-color: #d6d6d1;
+    border-radius: 18px;
+}
+
+/* ===== Divider ===== */
+.header-divider {
+    width: 700px;
+    height: 1px;
+    background-color: #A39594;
+    margin: 20px auto 15px auto;
+}
+
+/* ===== Navigation ===== */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #423E37;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    padding-bottom: 5px;
+
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: #A39594;
+}
+
+/* Button stuff */
+.doc-type-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.doc-type-buttons button {
+    padding: 12px 26px;
+    border-radius: 14px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.doc-type-buttons button.active {
+    background-color: #F7B2AD;
+    color: #333;
+    border: 1px solid #333;
+}
+
+.doc-type-buttons button:hover:not(.active) {
+    background-color: #333;
+}
+
+.analyzer-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.analyzer-controls button {
+    padding: 12px 28px;
+    font-size: 15px;
+    font-family: 'FranklinStandard-Demi', Arial, sans-serif;
+    letter-spacing: 1.5px;
+
+    border-radius: 8px;
+    border: none;
+    background-color: #A39594;
+    color: #333;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.analyzer-controls button:hover {
+    background-color: #F7B2AD;
+}
+
+.analyzer-controls input[type="file"]::-webkit-file-upload-button {
+    padding: 10px 18px;
+    font-family: 'Franklin', Arial, sans-serif;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+
+/*
+Color Palettes:
+
+Ivory: #F5FBEF
+Blue Slate: #61707D
+
+Platinum: #EEF1EF
+Blue Slate: #61707D
+Powder Blue: #A9B4C2
+Carbon Black: #1C2321
+
+Graphite: #333232
+Powder Blush: #F7B2AD
+Almond Silk: #CEB7B3
+
+Charcoal Brown: #423E37
+Dim Grey: #6E675F
+Rosy Graphite: #A39594
+Eggshell: #d6d6d1
+Sunflower Gold: #E3B23C

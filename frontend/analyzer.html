@@ -2,64 +2,150 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Legal Document Analyzer</title>
+    <title>Legal Document Analysis with GPT4.0-mini</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
-<body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+<header class="site-header">
 
-    <h1>Legal Document Analyzer</h1>
+    <!-- Top header row -->
+    <div class="header-top">
+
+        <!-- Social icons (left) -->
+        <div class="header-left">
+            <a href="https://instagram.com/benjamin.polster"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon">
+                <img src="static/img/instagram.svg" alt="Instagram">
+            </a>
+
+        <a href="https://linkedin.com/in/benjaminpolster"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon">
+                <img src="static/img/linkedin.svg" alt="LinkedIn">
+        </a>
+
+        <a href="https://github.com/benjaminpolster"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-icon">
+        <img src="static/img/github.svg" alt="GitHub">
+        </a>
+        </div>
+
+        <!-- Name (center) -->
+        <div class="header-center">
+            <h1>Benjamin Polster</h1>
+        </div>
+
+        <!-- Search bar (right) -->
+        <div class="header-right">
+            <input
+                type="text"
+                placeholder="Search"
+                class="search-input"
+            >
+        </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="header-divider"></div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <a href="projects.html">PROJECTS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="about.html">ABOUT ME</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+</header>
+
+<body>
+    <h2 class="analyzer-title">
+        PROJECTS / Legal Document Analysis with Artificial Intelligence
+    </h2>
+
+    <section>
+    <h2>Select and Upload</h2>
+    <p> 
+        Upload the short form Power of Attorney to determine the eligibility of potential new agents. In order to be eligible to become an agent under the bank owner's 
+        account, the Power of Attorney document must be signed and notarized in Illinois with at least one witness. In order for the requesting party to acquire agency, it must be in alignment 
+        with the effective date listed on the document.
+    </p>
+    <p> 
+        Upload the Will in question to determine the eligibility of potential new agents. In order a Will to be in compliance, it must be both filed in court and an executor must be appointed. If one or both of 
+        these conditions is not satisfied, the Will is not in compliance. 
+    </p>
+    <p>
+        Select your document type: 
+    </p>
+    <div class="doc-type-buttons">
+        <button type="button" data-doc="poa" class="active">Short Form Power of Attorney</button>
+        <button type="button" data-doc="will">Will</button>
+    </div>
 
     <form id="analyze-form">
-        <input type="file" id="pdf-file" required>
-        <button type="submit">Analyze</button>
+        <div class="analyzer-controls">
+            <input type="file" id="pdf-file" required>
+            <button type="submit">Analyze</button>
+        </div>
     </form>
 
-    <pre id="result"></pre>
-
     <script>
+    const buttons = document.querySelectorAll(".doc-type-buttons button");
+    let selectedDocType = "poa"; // default
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            // Remove active from all buttons
+            buttons.forEach(b => b.classList.remove("active"));
+            // Add active to clicked button
+            btn.classList.add("active");
+            // Update selected doc type
+            selectedDocType = btn.dataset.doc;
+        });
+    });
+
     const form = document.getElementById("analyze-form");
+    const resultBox = document.getElementById("result");
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         const fileInput = document.getElementById("pdf-file");
-        const resultBox = document.getElementById("result");
-
-        resultBox.textContent = "Analyzing...";
+        if (!fileInput.files.length) {
+            resultBox.textContent = "Please select a PDF file first.";
+            return;
+        }
 
         const formData = new FormData();
         formData.append("file", fileInput.files[0]);
+        formData.append("doc_type", selectedDocType); // <-- use selected button
+
+        resultBox.textContent = "Analyzing...";
 
         try {
-            const response = await fetch(
-                "https://website-v7fe.onrender.com/analyze",
-                {
-                    method: "POST",
-                    body: formData
-                }
-            );
+            const response = await fetch("https://website-v7fe.onrender.com/analyze", {
+                method: "POST",
+                body: formData
+            });
 
             if (!response.ok) {
                 const text = await response.text();
-                resultBox.textContent =
-                    "Server error:\n" + text;
-            return;
+                resultBox.textContent = "Server error:\n" + text;
+                return;
             }
 
             const data = await response.json();
             resultBox.textContent = data.result;
 
         } catch (err) {
-            resultBox.textContent =
-                "Request failed:\n" + err.message;
+            resultBox.textContent = "Request failed:\n" + err.message;
         }
     });
     </script>
+    </section>
 </body>
 </html>
