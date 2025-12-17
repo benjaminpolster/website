@@ -66,6 +66,6 @@ Document Text:
 {pdf_text}
 """
 
-    # Call GPT
-    result = openai_call(prompt)
-    return {"result": result}
+# Call GPT
+result = openai_call(prompt)
+return {"result": result}
