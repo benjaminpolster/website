@@ -22,10 +22,9 @@ Eligibility requirements:
 2. The document must be valid with respect to its effective date, typically the date of signature.
 
 Instructions:
-- Determine compliance or non-compliance for each requirement.
-- Return a numbered list.
-- For non-compliance, explain why and state the correct requirement.
-- For compliance, confirm the requirement was met.
+- Evaluate each requirement.
+- Return COMPLIANT or NON-COMPLIANT. 
+- Explain compliance or non-compliance of items 1 and 2 in a list.
 
 Document Text:
 {text[:12000]}
@@ -43,9 +42,8 @@ Compliance requires:
 
 Instructions:
 - Evaluate each requirement.
-- Return a numbered list.
-- Explain any non-compliance.
-- Confirm compliance where applicable.
+- Return COMPLIANT or NON-COMPLIANT. 
+- Explain compliance or non-compliance of items 1 and 2 in a list.
 
 Document Text:
 {text[:12000]}

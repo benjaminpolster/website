@@ -39,7 +39,7 @@ body{
 }
 
 .analyzer-title {
-    font-family: 'Franklin', 'Franklin Gothic', Arial, sans-serif;
+    font-family: 'FranklinStandard-Demi', sans-serif;
     font-size: 22px;
     letter-spacing: 1.5px;
     text-align: center;
@@ -279,12 +279,25 @@ a:hover {
 
 .analyzer-controls input[type="file"]::-webkit-file-upload-button {
     padding: 10px 18px;
-    font-family: 'Franklin', Arial, sans-serif;
+    font-family: 'FranklinStandard-Demi', Arial, sans-serif;
     letter-spacing: 1px;
     border-radius: 6px;
     border: 1px solid #333;
     background-color: #f5f5f5;
     cursor: pointer;
+}
+
+#result {
+    font-family: 'FranklinStandard-Demi', sans-serif;
+    white-space: pre-wrap;       /* Wrap long lines instead of scrolling horizontally */
+    word-wrap: break-word;       /* Break long words if needed */
+    max-width: 100%;             /* Ensure it doesn’t exceed parent width */
+    overflow-wrap: break-word;   /* Extra safety */
+    padding: 10px;               /* Optional: spacing inside box */
+    border: 1px solid #ccc;      /* Optional: match section style */
+    border-radius: 8px;          /* Optional: rounded corners */
+    margin-top: 20px;            /* Optional spacing from form */
+    background-color: #CEB7B3;   /* Optional: subtle background for readability */
 }
 
 
