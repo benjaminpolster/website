@@ -265,8 +265,8 @@ a:hover {
 
     border-radius: 8px;
     border: none;
-    background-color: #A39594;
-    color: #333;
+    background-color: #333;
+    color: #fff;
     cursor: pointer;
 
     transition: background-color 0.2s ease;
@@ -274,6 +274,7 @@ a:hover {
 
 .analyzer-controls button:hover {
     background-color: #F7B2AD;
+    color: #333;
 }
 
 .analyzer-controls input[type="file"]::-webkit-file-upload-button {
