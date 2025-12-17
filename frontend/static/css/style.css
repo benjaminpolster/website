@@ -288,16 +288,17 @@ a:hover {
 }
 
 #result {
-    font-family: 'FranklinStandard-Demi', sans-serif;
-    white-space: pre-wrap;       /* Wrap long lines instead of scrolling horizontally */
-    word-wrap: break-word;       /* Break long words if needed */
-    max-width: 100%;             /* Ensure it doesn’t exceed parent width */
-    overflow-wrap: break-word;   /* Extra safety */
-    padding: 10px;               /* Optional: spacing inside box */
-    border: 1px solid #ccc;      /* Optional: match section style */
-    border-radius: 8px;          /* Optional: rounded corners */
-    margin-top: 20px;            /* Optional spacing from form */
-    background-color: #CEB7B3;   /* Optional: subtle background for readability */
+    font-family: 'Georgia', serif; /* match your body font */
+    white-space: pre-wrap;          /* wrap lines instead of scrolling horizontally */
+    word-wrap: break-word;          
+    overflow-wrap: break-word;      
+    max-width: 100%;                
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+    background-color: #CEB7B3;
+    line-height: 1.5;               /* optional: make it more readable */
 }
 
 

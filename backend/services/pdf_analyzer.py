@@ -18,8 +18,8 @@ You are a legal document analysis assistant.
 Analyze the following Short Form Power of Attorney document and determine the eligibility of potential new agents.
 
 Eligibility requirements:
-1. The document must be signed and notarized in Illinois with at least one (1) witness.
-2. The document must be valid with respect to its effective date, typically the date of signature.
+1. The document must be signed and notarized in Illinois with at least one (1) witness. Empty fields (date, signature) are not acceptable. 
+2. The document must be valid with respect to its effective date, typically the date of signature. Empty fields (date, signature) are not acceptable. 
 
 Instructions:
 - Evaluate each requirement.
@@ -37,8 +37,8 @@ You are a legal document analysis assistant.
 Analyze the following Will and determine compliance.
 
 Compliance requires:
-1. The will has been filed with a court.
-2. An executor has been appointed.
+1. The will has been filed with a court. Empty fields are not acceptable. 
+2. An executor has been appointed. Empty fields are not acceptable. 
 
 Instructions:
 - Evaluate each requirement.
