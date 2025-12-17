@@ -260,6 +260,7 @@ a:hover {
     color: #fff;
     cursor: pointer;
     font-family: 'FranklinStandard-Demi', sans-serif;
+    font-size: 18px;
     transition: background-color 0.2s, color 0.2s;
 }
 
