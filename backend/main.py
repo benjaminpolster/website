@@ -18,18 +18,53 @@ from fastapi import Form
 async def analyze(file: UploadFile = File(...), doc_type: str = Form(...)):
     pdf_text = analyze_pdf(file.file)
 
-    if doc_type == "poa":
-        prompt = f"Analyze this Short Form Power of Attorney and determine eligibility of potential new agents. In order to be eligible to become an agent under the bank owner's 
-        account, the Power of Attorney document must be signed and notarized in Illinois with at least one witness (1). In order for the document to be valid, it must be in alignment 
-        with the effective date listed on the document (2). The effective date is typically the date of signature. List the findings (compliance or non-compliance) of items (1) and (2) in a list. 
-        For each item that is non-compliant, provide a brief message indicating the reason for non-compliance and the proper requirements of the action the user is attempting to take with respect to that item.
-        For each item that is compliant, provide a brief message confirming that requirements were met.\n{pdf_text}"
-    elif doc_type == "will":
-        prompt = f"Analyze this Will and determine compliance. Compliance is met when the will is filed with a court (1) and executor appointed (2). If one or both of these is not satisfied, the will is not in compliance.
-        List the findings of items (1) and (2) For each item that is non-compliant, provide a brief message indicating the reason for non-compliance and the requirements of that item. 
-        For each item that is compliant, provide a brief message confirming that requirements were met.\n{pdf_text}"
-    else:
-        prompt = f"Analyze this document:\n{pdf_text}"
+if doc_type == "poa":
+    prompt = f"""
+Analyze the following Short Form Power of Attorney document and determine the eligibility of potential new agents.
+
+In order to be eligible to become an agent under the bank owner's account, the following requirements must be satisfied:
+
+1. The Power of Attorney document must be signed and notarized in the state of Illinois, with at least one (1) witness.
+2. The document must be valid with respect to its effective date. The effective date must align with the date of execution, which is typically the date of signature.
+
+Your task:
+- Review the document text provided below.
+- Determine whether each of the above requirements (1) and (2) is compliant or non-compliant.
+- Return your findings as a clear, numbered list corresponding to each requirement.
+- For each non-compliant item, provide a brief explanation indicating the reason for non-compliance and the proper requirements for the action the user is attempting to take.
+- For each compliant item, provide a brief confirmation stating that the requirement was met.
+
+Document Text:
+{pdf_text}
+"""
+
+elif doc_type == "will":
+    prompt = f"""
+Analyze the following Will document and determine whether it is compliant.
+
+Compliance is defined as meeting all of the following requirements:
+
+1. The will has been filed with a court.
+2. An executor has been formally appointed.
+
+Your task:
+- Review the document text provided below.
+- Determine whether each of the above requirements (1) and (2) is compliant or non-compliant.
+- Return your findings as a clear, numbered list corresponding to each requirement.
+- For each non-compliant item, provide a brief explanation indicating the reason for non-compliance and the requirements that must be satisfied.
+- For each compliant item, provide a brief confirmation stating that the requirement was met.
+
+Document Text:
+{pdf_text}
+"""
+
+else:
+    prompt = f"""
+Analyze the following document and provide relevant findings.
+
+Document Text:
+{pdf_text}
+"""
 
     # Call GPT
     result = openai_call(prompt)
