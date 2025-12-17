@@ -1,25 +1,29 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from services.pdf_analyzer import analyze_pdf
+from services.openai_client import openai_call  # adjust import if needed
 
 app = FastAPI()
 
-# Allow requests 
+# Allow requests (MVP-wide CORS)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # for MVP, allow all
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-from fastapi import Form
-
 @app.post("/analyze")
-async def analyze(file: UploadFile = File(...), doc_type: str = Form(...)):
+async def analyze(
+    file: UploadFile = File(...),
+    doc_type: str = Form(...)
+):
+    # Extract text from PDF
     pdf_text = analyze_pdf(file.file)
 
-if doc_type == "poa":
-    prompt = f"""
+    # Build prompt based on document type
+    if doc_type == "poa":
+        prompt = f"""
 Analyze the following Short Form Power of Attorney document and determine the eligibility of potential new agents.
 
 In order to be eligible to become an agent under the bank owner's account, the following requirements must be satisfied:
@@ -38,8 +42,8 @@ Document Text:
 {pdf_text}
 """
 
-elif doc_type == "will":
-    prompt = f"""
+    elif doc_type == "will":
+        prompt = f"""
 Analyze the following Will document and determine whether it is compliant.
 
 Compliance is defined as meeting all of the following requirements:
@@ -58,14 +62,15 @@ Document Text:
 {pdf_text}
 """
 
-else:
-    prompt = f"""
+    else:
+        prompt = f"""
 Analyze the following document and provide relevant findings.
 
 Document Text:
 {pdf_text}
 """
 
-# Call GPT
-result = openai_call(prompt)
-return {"result": result}
+    # Call GPT
+    result = openai_call(prompt)
+
+    return {"result": result}
