@@ -38,7 +38,68 @@ body{
     line-height: 1.6;
 }
 
+/* H2 TITLE FORMATTING */
 .analyzer-title {
+    font-family: 'FranklinStandard-Demi', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    text-align: center;
+
+    margin: 40px auto 24px;
+    max-width: 800px;
+
+    font-weight: normal;
+}
+
+.about-title {
+    font-family: 'FranklinStandard-Demi', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    text-align: center;
+
+    margin: 40px auto 24px;
+    max-width: 800px;
+
+    font-weight: normal;
+}
+
+.gallery-title {
+    font-family: 'FranklinStandard-Demi', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    text-align: center;
+
+    margin: 40px auto 24px;
+    max-width: 800px;
+
+    font-weight: normal;
+}
+
+.contact-title {
+    font-family: 'FranklinStandard-Demi', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    text-align: center;
+
+    margin: 40px auto 24px;
+    max-width: 800px;
+
+    font-weight: normal;
+}
+
+.deepfake-title {
+    font-family: 'FranklinStandard-Demi', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    text-align: center;
+
+    margin: 40px auto 24px;
+    max-width: 800px;
+
+    font-weight: normal;
+}
+
+.projects-title {
     font-family: 'FranklinStandard-Demi', sans-serif;
     font-size: 22px;
     letter-spacing: 1.5px;
@@ -77,6 +138,19 @@ body {
     font-family: 'Georgia', serif;
     background-color: #d6d6d1;
     font-size: 1.4rem;
+}
+
+/* footer formatting */
+.copyright-footer {
+    position: fixed; 
+    bottom: 10px;
+    left: 20px;
+    z-index: 1000;
+
+    font-family: "GeorgiaStandard", serif;
+    font-size: 16px;
+    color: #6E675F;
+
 }
 
 /* section formatting */
@@ -125,7 +199,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: #E3B23C;
+    color: #F7B2AD;
 }
 
 
