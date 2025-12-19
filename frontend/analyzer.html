@@ -63,34 +63,49 @@
     </nav>
 </header>
 
-
     <h2 class="analyzer-title">
         PROJECTS / Legal Document Analysis with Artificial Intelligence
     </h2>
 
-<section class="analyzer-section">
-    <h2>Select and Upload Document</h2>
-    <p>
-        Upload a Short Form Power of Attorney or Will. The model will analyze your document and provide a checklist of compliance requirements.
-    </p>
+<div class="analyzer-layout" id="analyzer-layout">
 
-    <!-- Document Type Buttons -->
-    <div class="doc-type-buttons">
-        <button type="button" data-doc="poa" class="active">Short Form Power of Attorney</button>
-        <button type="button" data-doc="will">Will</button>
-    </div>
+    <!-- LEFT COLUMN -->
+    <section class="analyzer-section analyzer-left">
+        <h2>Select and Upload Document</h2>
+        <p>
+            Upload a Short Form Power of Attorney or Will, and select Analyze. The model will provide analysis of your document's compliance status. 
+        </p>
 
-    <!-- File Upload and Analyze -->
-    <form id="analyze-form">
-        <div class="analyzer-controls">
-            <input type="file" id="pdf-file" accept=".pdf" required>
-            <button type="submit">Analyze</button>
+        <p> 
+            <span class="italic-text"> 
+            Note: Please ensure that your document is in .pdf format, contains only digital text, 
+            does NOT contain scans of physical documents and contains ONLY digital text signatures. 
+            </span>
+        </p>
+
+        <div class="doc-type-buttons">
+            <button type="button" data-doc="poa" class="active">Power of Attorney</button>
+            <button type="button" data-doc="will">Will</button>
         </div>
-    </form>
 
-    <!-- GPT Output -->
-    <pre id="result"></pre>
-</section>
+        <form id="analyze-form">
+            <div class="analyzer-controls">
+                <label class="file-upload">
+                    Select PDF
+                    <input type="file" id="pdf-file" accept=".pdf" required hidden>
+                </label>
+                <span id="file-name">No file selected</span>
+                <button type="submit">Analyze</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- RIGHT COLUMN -->
+    <section class="analyzer-section analyzer-right">
+        <pre id="result"></pre>
+    </section>
+
+</div>
 
 <script>
     // Doc type buttons
@@ -105,14 +120,27 @@
         });
     });
 
+    // ===== FILE NAME DISPLAY FIX =====
+    const fileInput = document.getElementById("pdf-file");
+    const fileNameSpan = document.getElementById("file-name");
+
+    fileInput.addEventListener("change", () => {
+        if (fileInput.files.length > 0) {
+            fileNameSpan.textContent = fileInput.files[0].name;
+        } else {
+            fileNameSpan.textContent = "No file selected";
+        }
+    });
+    // =================================
+
     // Form submission
     const form = document.getElementById("analyze-form");
     const resultBox = document.getElementById("result");
+    const analyzerLayout = document.getElementById("analyzer-layout");
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const fileInput = document.getElementById("pdf-file");
         if (!fileInput.files.length) {
             resultBox.textContent = "Please select a PDF file first.";
             return;
@@ -138,6 +166,13 @@
 
             const data = await response.json();
             resultBox.textContent = data.result;
+
+            setTimeout(() => {
+                analyzerLayout.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }, 100);
 
         } catch (err) {
             resultBox.textContent = "Request failed:\n" + err.message;

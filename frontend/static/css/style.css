@@ -14,8 +14,22 @@
 }
 
 @font-face {
+    font-family: "GeorgiaStandard-Italic";
+    src: url("../fonts/georgia/georgiai.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
     font-family: "FranklinStandard-Demi";
     src: url("../fonts/franklin/FRADM.TTF") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "FranklinStandard-Medium";
+    src: url("../fonts/franklin/framd.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -29,6 +43,10 @@
 
 .bold-text {
     font-family: 'GeorgiaStandard-Bold', Georgia, serif;
+}
+
+.italic-text {
+    font-family: 'GeorgiaStandard-Italic', Georgia, serif;
 }
 
 /* Body font formatting */
@@ -301,7 +319,7 @@ a:hover {
     padding: 24px 32px;
     border: 1px solid #6E675F;
     border-radius: 18px;
-    background-color: #fdf6f2;
+    background-color: #EEF1EF;
     text-align: left;
     box-sizing: border-box;
 }
@@ -324,6 +342,7 @@ a:hover {
     justify-content: center;
     gap: 18px;
     margin-bottom: 28px;
+    margin-top: 28px;
 }
 
 .doc-type-buttons button {
@@ -357,7 +376,7 @@ a:hover {
 }
 
 .analyzer-controls input[type="file"]::-webkit-file-upload-button {
-    padding: 10px 18px;
+    padding: 10px 20px;
     font-family: 'FranklinStandard-Demi', sans-serif;
     border-radius: 6px;
     border: 1px solid #333;
@@ -367,9 +386,9 @@ a:hover {
 
 .analyzer-controls button {
     padding: 14px 32px;
-    font-size: 15px;
+    font-size: 24px;
     font-family: 'FranklinStandard-Demi', sans-serif;
-    border-radius: 8px;
+    border-radius: 15px;
     border: none;
     background-color: #333;
     color: #fff;
@@ -382,22 +401,75 @@ a:hover {
     color: #333;
 }
 
-#result {
-    display: block;
-    font-family: 'Georgia', serif !important;
-    white-space: pre-wrap !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    max-width: 100% !important;
-    padding: 12px !important;
-    border: 1px solid #ccc !important;
-    border-radius: 8px !important;
-    margin-top: 20px !important;
-    background-color: #CEB7B3 !important;
-    line-height: 1.5 !important;
+.analyzer-right #result {
+    font-family: 'Georgia', serif;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    min-height: 380px;   /* fixed initial size */
+    max-width: 100%;
+
+    padding: 16px;
+    margin-top: 12px;
+
+    background-color: #CEB7B3;
+    border-radius: 12px;
+    border: none;
+
+    line-height: 1.6;
 }
 
+/* ===== Analyzer Two-Column Layout ===== */
 
+.analyzer-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    align-items: start; 
+}
+
+.analyzer-right {
+    min-width: 600px;
+    max-width: 600px;
+    animation: fadeIn 0.6s ease; 
+}
+
+.analyzer-left {
+    min-width: 600px;
+    max-width: 600px; 
+    align-self: start;
+}
+
+.file-upload {
+    display: inline-block;
+    padding: 8px 18px;
+    font-size: 16px;
+    font-family: 'FranklinStandard-Medium', sans-serif;
+    border-radius: 10px;
+    background-color: #d6d6d1;
+    color: #333;
+    cursor: pointer;
+}
+
+.file-upload:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+#file-name {
+    font-size: 15px;
+    color: #423E37;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+}
 /*
 Color Palettes:
 
